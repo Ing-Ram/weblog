@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface-950 text-text-primary font-body antialiased;
+    margin: 0;
+  }
+  ::selection {
+    @apply bg-accent/30 text-accent;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-accent/50; }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-20;
+  }
+  .gradient-text {
+    @apply bg-gradient-accent bg-clip-text text-transparent;
+  }
+  .card-base {
+    @apply bg-surface-900 border border-surface-700 rounded-2xl
+           transition-all duration-300 hover:border-accent/30 hover:shadow-card-hover;
+  }
+}
