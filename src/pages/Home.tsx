@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/ui/Button'
+import SnakeGame from '../components/ui/SnakeGame'
+import GameModal from '../components/ui/GameModal'
 
 const marqueeItems = [
   'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'Vite', 'Next.js',
@@ -7,6 +10,7 @@ const marqueeItems = [
 ]
 
 export default function Home() {
+  const [gameOpen, setGameOpen] = useState(false)
   return (
     <div className="pt-16">
       {/* Hero */}
@@ -69,6 +73,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Snake Game Easter Egg */}
+      <section className="py-16 bg-surface-900 border-b border-surface-700">
+        <div className="section-container text-center">
+          <p className="text-text-muted text-sm mb-4 font-mono">feeling playful?</p>
+          <button
+            onClick={() => setGameOpen(true)}
+            className="inline-flex items-center gap-2 px-6 py-3 border border-accent/30 text-accent
+              hover:border-accent hover:bg-accent/5 rounded-lg transition-all duration-200 font-body"
+          >
+            <span>🐍</span>
+            Play Snake
+          </button>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-pop/10 pointer-events-none" />
@@ -93,6 +112,10 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <GameModal isOpen={gameOpen} onClose={() => setGameOpen(false)}>
+        <SnakeGame onClose={() => setGameOpen(false)} />
+      </GameModal>
     </div>
   )
 }

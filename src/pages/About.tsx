@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import SkillBadge from '../components/ui/SkillBadge'
+import SnakeGame from '../components/ui/SnakeGame'
+import GameModal from '../components/ui/GameModal'
 import { skills } from '../data/skills'
 import type { Skill } from '../types'
 
