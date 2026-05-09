@@ -22,7 +22,8 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const [nextDirection, setNextDirection] = useState<Direction>('RIGHT')
   const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
-  const [gameActive, setGameActive] = useState(true)
+  const [gameActive, setGameActive] = useState(false)
+  const [gameStarted, setGameStarted] = useState(false)
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null)
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('normal')
   const speed = difficulty === 'easy' ? 150 : difficulty === 'normal' ? 100 : 60
@@ -30,6 +31,12 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   // Handle keyboard input
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      // Start game on first arrow key
+      if (!gameStarted && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        setGameStarted(true)
+        setGameActive(true)
+      }
+
       if (!gameActive) return
 
       switch (e.key) {
@@ -58,7 +65,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [direction, gameActive])
+  }, [direction, gameActive, gameStarted])
 
   // Game loop
   useEffect(() => {
