@@ -24,6 +24,8 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const [gameOver, setGameOver] = useState(false)
   const [gameActive, setGameActive] = useState(true)
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null)
+  const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('normal')
+  const speed = difficulty === 'easy' ? 150 : difficulty === 'normal' ? 100 : 60
 
   // Handle keyboard input
   useEffect(() => {
@@ -117,10 +119,10 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
 
         return newSnake
       })
-    }, 100)
+    }, speed)
 
     return () => clearInterval(gameLoopRef.current)
-  }, [gameActive, gameOver, food, nextDirection])
+  }, [gameActive, gameOver, food, nextDirection, speed])
 
   // Draw game
   useEffect(() => {
@@ -201,6 +203,25 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
             </svg>
           </button>
         )}
+      </div>
+
+      {/* Difficulty selector */}
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-text-secondary font-mono">Difficulty:</span>
+        {(['easy', 'normal', 'hard'] as const).map((level) => (
+          <button
+            key={level}
+            onClick={() => setDifficulty(level)}
+            disabled={gameActive}
+            className={`px-3 py-1 text-xs rounded font-semibold transition-all duration-200 ${
+              difficulty === level
+                ? 'bg-accent text-surface-950'
+                : 'border border-surface-700 text-text-secondary hover:border-accent/50 disabled:opacity-50 disabled:cursor-not-allowed'
+            }`}
+          >
+            {level.charAt(0).toUpperCase() + level.slice(1)}
+          </button>
+        ))}
       </div>
 
       <canvas
