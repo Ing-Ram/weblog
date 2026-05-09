@@ -31,6 +31,18 @@ const timeline = [
 ]
 
 export default function About() {
+  const [avatarClicks, setAvatarClicks] = useState(0)
+  const [gameOpen, setGameOpen] = useState(false)
+
+  const handleAvatarClick = () => {
+    const newClicks = avatarClicks + 1
+    setAvatarClicks(newClicks)
+    if (newClicks === 3) {
+      setGameOpen(true)
+      setAvatarClicks(0)
+    }
+  }
+
   return (
     <div className="pt-16">
       <div className="section-container">
@@ -47,8 +59,16 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-start">
           {/* Avatar */}
           <div className="flex justify-center md:justify-start">
-            <div className="w-[230px] h-[230px] rounded-3xl shadow-accent-glow">
+            <div
+              onClick={handleAvatarClick}
+              className="w-[230px] h-[230px] rounded-3xl shadow-accent-glow cursor-pointer transition-transform duration-200 hover:scale-105 relative group"
+            >
               <img src="/chad.jpg" alt="Chad Ingram" className="w-full h-full rounded-3xl object-cover" />
+              {avatarClicks > 0 && (
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-2xl">{3 - avatarClicks}</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -126,6 +146,10 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        <GameModal isOpen={gameOpen} onClose={() => setGameOpen(false)}>
+          <SnakeGame onClose={() => setGameOpen(false)} />
+        </GameModal>
       </div>
     </div>
   )
