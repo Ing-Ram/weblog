@@ -189,7 +189,8 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     setNextDirection('RIGHT')
     setScore(0)
     setGameOver(false)
-    setGameActive(true)
+    setGameActive(false)
+    setGameStarted(false)
   }
 
   return (
