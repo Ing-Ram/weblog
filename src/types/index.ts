@@ -13,5 +13,5 @@ export interface Skill {
   name: string
   icon: string
   level: 'core' | 'proficient' | 'familiar'
-  group: 'Languages' | 'Frontend' | 'Backend' | 'Tools'
+  group: 'Languages' | 'Frontend' | 'Backend' | 'Tools' | 'Frameworks'
 }

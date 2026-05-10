@@ -5,28 +5,28 @@ import GameModal from '../components/ui/GameModal'
 import { skills } from '../data/skills'
 import type { Skill } from '../types'
 
-const groups: Skill['group'][] = ['Languages', 'Frontend', 'Backend', 'Tools']
+const groups: Skill['group'][] = ['Languages', 'Frontend', 'Backend', 'Tools', 'Frameworks']
 
 const timeline = [
   {
     year: '2024',
-    title: 'Senior Full-Stack Developer',
-    description: 'Leading product development across React frontends and Node.js microservices.',
+    title: 'Music Director',
+    description: 'Took a year-long sabbatical from software engineering to be a full-time Music Director for the Salvation Army. It was an incredible experience that deepened my love for music, collaboration, and building community.',
   },
   {
     year: '2022',
-    title: 'Launched First OSS Project',
-    description: 'Published CLI Toolkit on npm — 500+ downloads in the first month.',
+    title: 'Software Engineer I',
+    description: 'Started working for a fintech company building APIs, internal tools, in inbounding support, and more. Gained experience across the stack and shipped features that impacted millions of users across many banks.',
   },
   {
-    year: '2020',
-    title: 'Full-Stack Developer',
-    description: 'Joined a startup building real-time collaboration tools. Shipped v1 in 3 months.',
+    year: '2021',
+    title: 'Graduated from University',
+    description: 'Worked with CodePath to learn, and then teach Android development. I also graduated on the dean\'s list and continued to develop a deep passion for software development, problem-solving, and continuous learning.',
   },
   {
-    year: '2018',
+    year: '2017',
     title: 'Started Coding Seriously',
-    description: 'Built my first web app — a personal budgeting tool — and never looked back.',
+    description: 'Built my first app for a class project, and I never looked back.',
   },
 ]
 
