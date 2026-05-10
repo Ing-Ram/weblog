@@ -78,7 +78,7 @@ export default function About() {
               Hi, I’m Chad!
             </p>
             <p>
-              A husband, father, software Engineer, musician, and lifelong learner who believes the most meaningful things we build are the ones that connect people.
+              A husband, father, software engineer, musician, and lifelong learner who believes the most meaningful things we build are the ones that connect people.
             </p>
             <p>
               Fatherhood is at the center of who I am. It’s now shaped the way I approach life, work, create, and problem-solve. Being a dad has taught me patience, adaptability, curiosity, and the importance of building things that truly matter — whether that’s supporting my family, creating software, or making music with others.
