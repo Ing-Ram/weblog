@@ -24,7 +24,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const [gameOver, setGameOver] = useState(false)
   const [gameActive, setGameActive] = useState(false)
   const [gameStarted, setGameStarted] = useState(false)
-  const gameLoopRef = useRef<NodeJS.Timeout | null>(null)
+  const gameLoopRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('normal')
   const speed = difficulty === 'easy' ? 150 : difficulty === 'normal' ? 100 : 60
 
@@ -128,7 +128,9 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
       })
     }, speed)
 
-    return () => clearInterval(gameLoopRef.current)
+    return () => {
+      if (gameLoopRef.current) clearInterval(gameLoopRef.current)
+    }
   }, [gameActive, gameOver, food, nextDirection, speed])
 
   // Draw game
