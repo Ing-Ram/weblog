@@ -52,7 +52,7 @@ export default function About() {
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}>
             About Me
           </h1>
-          <div className="w-16 h-1 bg-gradient-accent rounded-full" />
+          <div className="w-30 h-1 bg-gradient-accent rounded-full" />
         </div>
 
         {/* Bio section */}
@@ -78,13 +78,13 @@ export default function About() {
               Hi, I’m Chad!
             </p>
             <p>
-              A Father, Software Engineer, Music Director, and lifelong learner who believes the most meaningful things we build are the ones that connect people.
+              A husband, father, software Engineer, musician, and lifelong learner who believes the most meaningful things we build are the ones that connect people.
             </p>
             <p>
-              Fatherhood is at the center of who I am. It’s shaped the way I approach life, work, creativity, and problem-solving. Being a dad has taught me patience, adaptability, curiosity, and the importance of building things that truly matter — whether that’s supporting my family, creating software, or making music with others.
+              Fatherhood is at the center of who I am. It’s now shaped the way I approach life, work, create, and problem-solve. Being a dad has taught me patience, adaptability, curiosity, and the importance of building things that truly matter — whether that’s supporting my family, creating software, or making music with others.
             </p>
             <p>
-              Professionally, I come from a Computer Science background and enjoy developing software solutions that simplify problems and improve experiences. I’m especially drawn to projects where technology and creativity intersect — the kind of work that feels both practical and human.
+              Professionally, I enjoy developing software solutions that simplify problems, improve experiences, and empower creativity. I’m especially drawn to projects where education, technology and creativity intersect — the kind of work that feels both practical and human.
             </p>
             <p>
               Outside of engineering, music has always been a huge part of my life. I play trumpet in local orchestras and value the teamwork, discipline, and emotion that live performance brings. Music and technology may seem like different worlds, but for me they’ve always shared the same foundation: listening carefully, collaborating well, and creating something meaningful.

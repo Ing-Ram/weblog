@@ -20,7 +20,7 @@ export default function Projects() {
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}>
             Projects
           </h1>
-          <div className="w-16 h-1 bg-gradient-accent rounded-full mb-4" />
+          <div className="w-30 h-1 bg-gradient-accent rounded-full mb-4" />
           <p className="text-text-secondary text-lg">Things I've built.</p>
         </div>
 

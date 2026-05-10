@@ -6,7 +6,7 @@ import GameModal from '../components/ui/GameModal'
 
 const marqueeItems = [
   'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'Vite', 'Next.js',
-  'Tailwind', 'Redis', 'Prisma', 'Python', 'AWS', 'Git', 'Figma', 'Linux',
+  'Tailwind', 'MySql', 'Java', 'Python', 'AWS', 'Git', 'Figma', 'Linux', 'C++', 'Swift', 'JavaFX', 'SwiftUI', 'GraphQL', 'REST APIs', 'Microservices', 'TDD', 'C#',
 ]
 
 export default function Home() {
@@ -33,11 +33,11 @@ export default function Home() {
           </h1>
 
           <p className="text-text-secondary text-xl font-body mb-6 max-w-xl mx-auto">
-            Full-Stack Developer & Creative Technologist
+            Developer & Creative Technologist
           </p>
 
-          <p className="text-text-muted text-base max-w-lg mx-auto mb-10 leading-relaxed">
-            I build performant, delightful products — from pixel-perfect UIs to battle-tested APIs.
+          <p className="text-text-muted text-base max-w-lg mx-auto mb-8 leading-relaxed">
+            I build performant, delightful products-from silly projects for my family to battle-tested APIs.
             Focused on shipping things that matter.
           </p>
 
