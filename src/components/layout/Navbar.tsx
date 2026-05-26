@@ -7,6 +7,8 @@ const navLinks = [
   { to: '/projects', label: 'Projects' },
 ]
 
+const blogUrl = import.meta.env.VITE_BLOG_URL ?? '#'
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
@@ -34,6 +36,14 @@ export default function Navbar() {
               </NavLink>
             </li>
           ))}
+          <li>
+            <a
+              href={blogUrl}
+              className="font-body text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200"
+            >
+              Blog
+            </a>
+          </li>
         </ul>
 
         {/* Mobile hamburger */}
@@ -68,6 +78,14 @@ export default function Navbar() {
                 </NavLink>
               </li>
             ))}
+            <li>
+              <a
+                href={blogUrl}
+                className="block font-body font-medium text-text-secondary hover:text-text-primary transition-colors duration-200"
+              >
+                Blog
+              </a>
+            </li>
           </ul>
         </div>
       )}
