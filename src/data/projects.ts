@@ -1,15 +1,6 @@
 import type { Project } from '../types'
 
 export const projects: Project[] = [
-  {
-    id: 'project-1',
-    title: 'Jobs Dashboard',
-    description: 'Job search dashboard that aggregates listings from multiple APIs. Filter by role, location, and company size.',
-    tags: ['React', 'JavaScript', 'REST API', 'Tailwind'],
-    category: 'Web',
-    githubUrl: 'https://github.com/Ing-Ram/create-react-jobs-tut',
-    gradient: 'from-cyan-500 to-blue-600',
-  },
   // {
   //   id: 'project-2',
   //   title: 'Void Notes',
