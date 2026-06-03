@@ -16,7 +16,7 @@ const timeline = [
   {
     year: '2022',
     title: 'Software Engineer I',
-    description: 'Started working for a fintech company building APIs, internal tools, in inbounding support, and more. Gained experience across the stack and shipped features that impacted millions of users across many banks.',
+    description: 'Started working for a fintech company building APIs, internal tools, inbound support, and more. Gained experience across the stack and shipped features that impacted millions of users across many banks.',
   },
   {
     year: '2021',

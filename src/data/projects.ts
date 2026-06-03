@@ -68,7 +68,7 @@ export const projects: Project[] = [
     {
     id: 'project-7',
     title: 'Book API',
-    description: 'This a research project to build a book API using .Net 9 and Entity Framework. The API will allow users to perform CRUD operations on books, authors, and genres.',
+    description: 'This is a research project to build a book API using .Net 9 and Entity Framework. The API will allow users to perform CRUD operations on books, authors, and genres.',
     tags: ['C#', '.NET', 'Entity Framework', 'MySQL'],
     category: 'OSS',
     githubUrl: 'https://github.com/Ing-Ram/BookAPI',

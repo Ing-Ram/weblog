@@ -32,6 +32,24 @@ npm run build        # Production build to dist/
 npm run preview      # Preview production build locally
 ```
 
+## Testing
+
+Tests are written with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/).
+
+```bash
+npm test             # Run all tests once
+npm run test:watch   # Run tests in watch mode
+```
+
+**Coverage:**
+- `Navbar` — logo link, nav links (Home, About, Projects, Blog), mobile hamburger toggle
+- `Footer` — quick links, social links (GitHub, LinkedIn, Email) with correct hrefs
+- `Home` — hero buttons, CTA link, Play Snake button, key text/grammar
+- `Projects` — filter buttons (All, Web, Mobile, Other, OSS), filter behavior, GitHub links on cards
+- `ProjectCard` — renders title/description/tags, GitHub button, Live Demo button
+
+Test files live in `src/__tests__/` with a shared setup at `src/test/setup.ts`.
+
 ## Deployment
 
 Deploy to Netlify for automatic CI/CD:

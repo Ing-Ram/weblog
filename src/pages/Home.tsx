@@ -37,7 +37,7 @@ export default function Home() {
           </p>
 
           <p className="text-text-muted text-base max-w-lg mx-auto mb-8 leading-relaxed">
-            I build performant, delightful products-from silly projects for my family to battle-tested APIs.
+            I build performant, delightful products — from silly projects for my family to battle-tested APIs.
             Focused on shipping things that matter.
           </p>
 
