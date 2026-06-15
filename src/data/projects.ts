@@ -10,15 +10,15 @@ export const projects: Project[] = [
   //   githubUrl: 'https://github.com',
   //   gradient: 'from-violet-500 to-purple-700',
   // },
-  // {
-  //   id: 'project-7',
-  //   title: 'Book API',
-  //   description: 'This a research project to build a book API using .Net 9 and Entity Framework. The API will allow users to perform CRUD operations on books, authors, and genres.',
-  //   tags: ['C#', '.NET', 'Entity Framework', 'MySQL'],
-  //   category: 'OSS',
-  //   githubUrl: 'https://github.com/Ing-Ram/BookAPI',
-  //   gradient: 'from-emerald-500 to-teal-600',
-  // },
+  {
+    id: 'project-7',
+    title: 'Simple ERP System',
+    description: 'A simple enterprise resource planning system built with some modern web technologies.',
+    tags: ['Java', 'TypeScript', 'Maven', 'Postgres', 'Bash', 'React', 'Spring Boot'], 
+    category: 'OSS',
+    githubUrl: 'https://github.com/Ing-Ram/simple-erp',
+    gradient: 'from-emerald-500 to-teal-600',
+  },
  
   {
     id: 'project-2',
