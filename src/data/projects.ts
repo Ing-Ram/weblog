@@ -10,6 +10,15 @@ export const projects: Project[] = [
   //   githubUrl: 'https://github.com',
   //   gradient: 'from-violet-500 to-purple-700',
   // },
+    // {
+  //   id: 'project-2',
+  //   title: 'Void Notes',
+  //   description: 'Minimal, offline-first markdown note-taking app. Local-first with optional encrypted cloud sync.',
+  //   tags: ['React', 'IndexedDB', 'Markdown', 'PWA'],
+  //   category: 'Web',
+  //   githubUrl: 'https://github.com',
+  //   gradient: 'from-violet-500 to-purple-700',
+  // },
   {
     id: 'project-7',
     title: 'Simple ERP System',
