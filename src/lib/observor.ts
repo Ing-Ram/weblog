@@ -91,6 +91,67 @@ function truncate(value: string | null | undefined, max: number): string | null 
   return value.length > max ? value.slice(0, max) : value
 }
 
+/** Apply the configured redaction to a pathname, defaulting to fully opaque. */
+function redactPath(pathname: string): string {
+  const normalize = config?.normalizePath
+  if (!normalize) return pathname
+  return normalize(pathname) ?? '/app'
+}
+
+/**
+ * Same-origin referrers are NOT safe to send raw.
+ *
+ * `Referrer-Policy: strict-origin-when-cross-origin` — the policy this app
+ * sets — strips cross-origin referrers down to the bare origin, but sends the
+ * **full URL** for same-origin navigations. On any full page load inside the
+ * app that means the previous authenticated URL, ids and all, and for
+ * `/invoice/<shareToken>` it means an actual credential.
+ *
+ * So same-origin referrers go through the same redaction as `path`, and query
+ * and hash are discarded in both directions.
+ */
+function safeReferrer(): string | null {
+  try {
+    const raw = document.referrer
+    if (!raw) return null
+    const url = new URL(raw)
+    if (url.origin !== window.location.origin) return url.origin + url.pathname
+    return url.origin + redactPath(url.pathname)
+  } catch {
+    // A referrer we cannot parse is one we cannot redact.
+    return null
+  }
+}
+
+/**
+ * Error messages and stack frames embed URLs, and interpolated messages can
+ * carry record identifiers. Rewrite every URL found in a string: same-origin
+ * paths are redacted, and query strings are dropped everywhere, since that is
+ * where tokens live.
+ *
+ * Two carve-outs keep stacks debuggable. A trailing `:line:col` is split off
+ * before parsing and re-attached afterwards, and same-origin `/_next/` paths
+ * are kept verbatim — they are build assets, never user data, and redacting
+ * them would collapse every frame of every stack to the same opaque marker.
+ */
+function scrubUrls(value: string | null | undefined): string | null {
+  if (!value) return null
+  return value.replace(/https?:\/\/[^\s'"`)\]]+/g, (match) => {
+    // Stack frames append `:line:col` to the URL; it is not part of the path.
+    const framePos = match.match(/(:\d+:\d+)$/)
+    const suffix = framePos ? framePos[1] : ''
+    const bare = suffix ? match.slice(0, -suffix.length) : match
+    try {
+      const url = new URL(bare)
+      if (url.origin !== window.location.origin) return url.origin + url.pathname + suffix
+      if (url.pathname.startsWith('/_next/')) return url.origin + url.pathname + suffix
+      return url.origin + redactPath(url.pathname) + suffix
+    } catch {
+      return match
+    }
+  })
+}
+
 export function initObservor(next: ObservorConfig): void {
   if (!next.supabaseUrl || !next.anonKey) return
   config = next
@@ -113,7 +174,7 @@ export function trackPageview(pathname: string): void {
       // Only the entry referrer is interesting; on SPA route changes
       // document.referrer still points at the original external source, which
       // would otherwise be double-counted on every navigation.
-      referrer: firstViewSent ? null : truncate(document.referrer || null, 512),
+      referrer: firstViewSent ? null : truncate(safeReferrer(), 512),
     })
     firstViewSent = true
   } catch {
@@ -141,10 +202,10 @@ function reportError(message: string, source?: string, line?: number, stack?: st
       app_slug: config.appSlug,
       session_id: sessionId(),
       path: truncate(path, 512),
-      message: truncate(message, 1000),
-      source: truncate(source, 512),
+      message: truncate(scrubUrls(message), 1000),
+      source: truncate(scrubUrls(source), 512),
       line: typeof line === 'number' ? line : null,
-      stack: truncate(stack, 2000),
+      stack: truncate(scrubUrls(stack), 2000),
     })
   } catch {
     /* ignore */
