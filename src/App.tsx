@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import { useObservor } from './lib/useObservor'
 
 function NotFound() {
   return (
@@ -15,6 +16,8 @@ function NotFound() {
 }
 
 export default function App() {
+  useObservor()
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
