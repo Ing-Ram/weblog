@@ -8,51 +8,70 @@ export default {
     extend: {
       colors: {
         surface: {
-          950: '#080B12',
-          900: '#0D1117',
-          800: '#161B22',
-          700: '#21262D',
+          950: '#0A0A0A',
+          900: '#111111',
+          800: '#1A1A1A',
+          700: '#2E2E2E',
         },
         accent: {
-          DEFAULT: '#00D9FF',
-          dim: '#00A8C8',
-          glow: '#00D9FF33',
+          DEFAULT: '#FF4D00',
+          dim: '#D63F00',
+          glow: '#FF4D0033',
         },
         pop: {
-          DEFAULT: '#FF2D78',
-          dim: '#CC1A58',
+          DEFAULT: '#FF4D00',
+          dim: '#D63F00',
+        },
+        // Tiffany blue-green — the announcement bar's highlight only.
+        tiffany: {
+          DEFAULT: '#0ABAB5',
+          dim: '#089B97',
         },
         text: {
-          primary: '#F0F6FC',
-          secondary: '#8B949E',
-          muted: '#484F58',
+          primary: '#FAFAFA',
+          secondary: '#A3A3A3',
+          muted: '#6B6B6B',
         },
+      },
+      spacing: {
+        // Fixed header: navbar (4rem) + announcement bar (2.5rem).
+        header: '6.5rem',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
       },
+      // Hard edges everywhere. `full` is kept for dots and the scrollbar thumb.
+      borderRadius: {
+        none: '0',
+        sm: '0',
+        DEFAULT: '0',
+        md: '0',
+        lg: '0',
+        xl: '0',
+        '2xl': '0',
+        '3xl': '0',
+        full: '9999px',
+      },
       boxShadow: {
-        'accent-glow': '0 0 30px rgba(0, 217, 255, 0.15)',
-        'card-hover': '0 8px 40px rgba(0, 217, 255, 0.08)',
+        // Offset blocks instead of glows.
+        'hard': '6px 6px 0 0 #FF4D00',
+        'hard-sm': '4px 4px 0 0 #FF4D00',
+        'hard-light': '6px 6px 0 0 #2E2E2E',
       },
-      backgroundImage: {
-        'hero-grid': `linear-gradient(rgba(0,217,255,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,217,255,0.04) 1px, transparent 1px)`,
-        'gradient-accent': 'linear-gradient(135deg, #00D9FF 0%, #FF2D78 100%)',
-      },
-      backgroundSize: {
-        'hero-grid': '60px 60px',
+      letterSpacing: {
+        brutal: '-0.045em',
+        label: '0.18em',
       },
       animation: {
-        'fade-up': 'fadeUp 0.6s ease-out forwards',
+        'fade-up': 'fadeUp 0.4s ease-out forwards',
         'marquee': 'marquee 25s linear infinite',
         'pulse-dot': 'pulseDot 2s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         marquee: {

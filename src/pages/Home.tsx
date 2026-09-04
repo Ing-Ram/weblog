@@ -12,48 +12,51 @@ const marqueeItems = [
 export default function Home() {
   const [gameOpen, setGameOpen] = useState(false)
   return (
-    <div className="pt-16">
+    <div className="pt-header">
       {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden
-        bg-hero-grid bg-hero-grid bg-surface-950">
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-gradient-radial from-accent/5 via-transparent to-transparent pointer-events-none" />
-
-        <div className="section-container text-center relative z-10 animate-fade-up">
+      <section className="min-h-[calc(100vh-theme(spacing.header))] flex items-center bg-surface-950 border-b border-surface-700">
+        <div className="section-container w-full animate-fade-up">
           {/* Available badge */}
-          <div className="inline-flex items-center gap-2 border border-surface-700 bg-surface-900 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-dot" />
-            <span className="text-text-secondary text-xs font-mono">Available for Work</span>
+          <div className="inline-flex items-center gap-2 border border-surface-700 px-3 py-1.5 mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse-dot" />
+            <span className="label-mono text-text-secondary">Available for Work</span>
           </div>
 
-          <h1 className="font-display font-bold text-text-primary mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: '1.05', letterSpacing: '-0.03em' }}>
-            Hi, I'm{' '}
-            <span className="gradient-text">Chad Ingram</span>
+          <p className="font-mono text-text-muted text-xs uppercase tracking-label mb-4">
+            Hi, I&apos;m
+          </p>
+
+          <h1 className="font-display font-bold text-text-primary uppercase mb-10"
+            style={{ fontSize: 'clamp(2.75rem, 11vw, 8rem)', lineHeight: '0.88', letterSpacing: '-0.045em' }}>
+            Chad{' '}
+            <br />
+            Ingram
           </h1>
 
-          <p className="text-text-secondary text-xl font-body mb-6 max-w-xl mx-auto">
-            Developer & Creative Technologist
-          </p>
+          <div className="border-t border-surface-700 pt-6 max-w-2xl">
+            <p className="font-mono text-text-primary text-sm uppercase tracking-label mb-5">
+              Developer &amp; Creative Technologist
+            </p>
+            <p className="text-text-secondary text-base leading-relaxed mb-10">
+              I build performant, delightful products — from silly projects for my family to battle-tested APIs.
+              Focused on shipping things that matter.
+            </p>
 
-          <p className="text-text-muted text-base max-w-lg mx-auto mb-8 leading-relaxed">
-            I build performant, delightful products — from silly projects for my family to battle-tested APIs.
-            Focused on shipping things that matter.
-          </p>
-
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Button href="/projects" variant="primary" size="lg">
-              View Projects
-            </Button>
-            <Button href="/about" variant="outline" size="lg">
-              About Me
-            </Button>
+            <div className="flex items-center gap-3 flex-wrap">
+              <Button href="/projects" variant="primary" size="lg">
+                View Projects
+              </Button>
+              <Button href="/about" variant="outline" size="lg">
+                About Me
+              </Button>
+            </div>
           </div>
 
           {/* Scroll indicator */}
-          <div className="mt-20 flex justify-center">
-            <div className="flex flex-col items-center gap-1 text-text-muted animate-bounce">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+          <div className="mt-20 flex">
+            <div className="flex items-center gap-3 text-text-muted">
+              <span className="font-mono text-[0.7rem] uppercase tracking-label">Scroll</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </div>
@@ -62,25 +65,26 @@ export default function Home() {
       </section>
 
       {/* Marquee strip */}
-      <section className="py-8 border-y border-surface-700 bg-surface-900 overflow-hidden">
+      <section className="py-5 border-b border-surface-700 bg-surface-950 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="font-mono text-text-muted text-sm mx-8">
+            <span key={i} className="font-mono text-text-muted text-xs uppercase tracking-label mx-6">
               {item}
-              <span className="ml-8 text-accent/30">·</span>
+              <span className="ml-6 text-accent">/</span>
             </span>
           ))}
         </div>
       </section>
 
       {/* Snake Game Easter Egg */}
-      <section className="py-16 bg-surface-900 border-b border-surface-700">
-        <div className="section-container text-center">
-          <p className="text-text-muted text-sm mb-4 font-mono">feeling playful?</p>
+      <section className="border-b border-surface-700 bg-surface-950">
+        <div className="section-container py-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <p className="label-mono text-text-muted">Feeling playful?</p>
           <button
             onClick={() => setGameOpen(true)}
-            className="inline-flex items-center gap-2 px-6 py-3 border border-accent/30 text-accent
-              hover:border-accent hover:bg-accent/5 rounded-lg transition-all duration-200 font-body"
+            className="inline-flex items-center gap-3 px-6 py-3 border border-surface-700 text-text-primary
+              font-mono text-sm uppercase tracking-label
+              hover:border-accent hover:text-accent transition-colors duration-150 self-start"
           >
             <span>🐍</span>
             Play Snake
@@ -89,24 +93,24 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-pop/10 pointer-events-none" />
-        <div className="section-container text-center relative z-10">
-          <h2 className="font-display font-bold text-text-primary mb-4"
-            style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: '1.1', letterSpacing: '-0.02em' }}>
+      <section className="bg-surface-950">
+        <div className="section-container">
+          <h2 className="font-display font-bold text-text-primary uppercase mb-8 max-w-3xl"
+            style={{ fontSize: 'clamp(1.75rem, 6vw, 4rem)', lineHeight: '0.95', letterSpacing: '-0.04em' }}>
             Want to see what I've built?
           </h2>
-          <p className="text-text-secondary mb-8 max-w-md mx-auto">
+          <p className="text-text-secondary mb-10 max-w-md leading-relaxed">
             From dashboards to CLIs to mobile apps — explore the full project catalogue.
           </p>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 font-body font-semibold text-accent
-              hover:text-text-primary transition-colors duration-200 group"
+            className="inline-flex items-center gap-3 border border-accent text-accent
+              font-mono text-sm uppercase tracking-label px-6 py-3
+              hover:bg-accent hover:text-surface-950 transition-colors duration-150 group"
           >
             See all projects
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-              className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1">
+              className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </Link>

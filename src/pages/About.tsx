@@ -9,6 +9,11 @@ const groups: Skill['group'][] = ['Languages', 'Frontend', 'Backend', 'Tools', '
 
 const timeline = [
   {
+    year: '2026',
+    title: 'Founder of GGyst.com',
+    description: 'Founded and shipped GGyst, a business-management platform for independent gig workers that brings scheduling, client and family profiles, invoicing, expenses, and dashboard reporting into one place. Built it end to end — data model, authentication, encrypted client records, and the production deploy.',
+  },
+  {
     year: '2024',
     title: 'Music Director',
     description: 'Took a year-long sabbatical from software engineering to be a full-time Music Director for the Salvation Army. It was an incredible experience that deepened my love for music, collaboration, and building community.',
@@ -44,26 +49,27 @@ export default function About() {
   }
 
   return (
-    <div className="pt-16">
+    <div className="pt-header">
       <div className="section-container">
         {/* Page header */}
-        <div className="mb-16">
-          <h1 className="font-display font-bold text-text-primary mb-3"
-            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}>
+        <div className="mb-20 border-b border-surface-700 pb-10">
+          <p className="label-mono mb-5">01 / Profile</p>
+          <h1 className="font-display font-bold text-text-primary uppercase"
+            style={{ fontSize: 'clamp(2.5rem, 9vw, 6.5rem)', lineHeight: '0.9', letterSpacing: '-0.045em' }}>
             About Me
           </h1>
-          <div className="w-30 h-1 bg-gradient-accent rounded-full" />
         </div>
 
         {/* Bio section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-start">
           {/* Avatar */}
-          <div className="flex justify-center md:justify-start">
+          <div className="flex justify-center md:justify-start md:sticky md:top-28">
             <div
               onClick={handleAvatarClick}
-              className="w-[230px] h-[230px] rounded-3xl shadow-accent-glow cursor-pointer transition-transform duration-200 hover:scale-105 relative group"
+              className="w-full max-w-[300px] md:max-w-[380px] aspect-square border border-surface-700 cursor-pointer relative group
+                transition-shadow duration-150 hover:shadow-hard-sm"
             >
-              <img src="/chad.jpg" alt="Chad Ingram" className="w-full h-full rounded-3xl object-cover" />
+              <img src="/chad.jpg" alt="Chad Ingram" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-200" />
               {avatarClicks > 0 && (
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-2xl">{3 - avatarClicks}</span>
@@ -73,7 +79,7 @@ export default function About() {
           </div>
 
           {/* Bio text */}
-          <div className="flex flex-col gap-5 text-text-secondary leading-relaxed">
+          <div className="flex flex-col gap-5 text-text-secondary leading-relaxed border-l border-surface-700 pl-6">
             <p>
               Hi, I’m Chad!
             </p>
@@ -100,15 +106,16 @@ export default function About() {
 
         {/* Skills section */}
         <div className="mb-20">
-          <h2 className="font-display font-semibold text-text-primary text-2xl mb-8">
-            Skills & Stack
+          <p className="label-mono mb-4">02 / Stack</p>
+          <h2 className="font-display font-bold text-text-primary uppercase text-3xl md:text-5xl mb-10 tracking-brutal">
+            Skills &amp; Stack
           </h2>
           <div className="flex flex-col gap-8">
             {groups.map((group) => {
               const groupSkills = skills.filter((s) => s.group === group)
               return (
                 <div key={group}>
-                  <p className="font-mono text-accent text-xs mb-3 tracking-wider uppercase">{group}</p>
+                  <p className="label-mono mb-3 border-b border-surface-700 pb-2">{group}</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                     {groupSkills.map((skill) => (
                       <SkillBadge key={skill.name} {...skill} />
@@ -122,7 +129,8 @@ export default function About() {
 
         {/* Timeline */}
         <div>
-          <h2 className="font-display font-semibold text-text-primary text-2xl mb-8">
+          <p className="label-mono mb-4">03 / Timeline</p>
+          <h2 className="font-display font-bold text-text-primary uppercase text-3xl md:text-5xl mb-10 tracking-brutal">
             Timeline
           </h2>
           <div className="flex flex-col gap-0">
@@ -130,16 +138,16 @@ export default function About() {
               <div key={i} className="flex gap-6 relative">
                 {/* Line + dot */}
                 <div className="flex flex-col items-center">
-                  <div className="w-3 h-3 rounded-full bg-accent mt-1 shrink-0 shadow-accent-glow" />
+                  <div className="w-3 h-3 bg-accent mt-1.5 shrink-0" />
                   {i < timeline.length - 1 && (
-                    <div className="w-px flex-1 bg-surface-700 my-1" />
+                    <div className="w-px flex-1 bg-surface-700 mt-2" />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="pb-10">
-                  <p className="font-mono text-accent text-xs mb-1">{entry.year}</p>
-                  <p className="font-display font-semibold text-text-primary mb-1">{entry.title}</p>
+                <div className="pb-12 max-w-2xl">
+                  <p className="font-mono font-bold text-accent text-sm tracking-label mb-2">{entry.year}</p>
+                  <p className="font-display font-bold text-text-primary uppercase text-xl tracking-brutal mb-2">{entry.title}</p>
                   <p className="text-text-secondary text-sm leading-relaxed">{entry.description}</p>
                 </div>
               </div>

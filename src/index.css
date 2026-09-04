@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,23 +13,32 @@
     margin: 0;
   }
   ::selection {
-    @apply bg-accent/30 text-accent;
+    @apply bg-accent text-surface-950;
   }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { @apply bg-surface-900; }
-  ::-webkit-scrollbar-thumb { @apply bg-surface-700 rounded-full; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-accent/50; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-700; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-accent; }
 }
 
 @layer components {
   .section-container {
     @apply max-w-6xl mx-auto px-6 py-20;
   }
+  /* Kept for compatibility — the accent is flat now, not a gradient. */
   .gradient-text {
-    @apply bg-gradient-accent bg-clip-text text-transparent;
+    @apply text-accent;
   }
   .card-base {
-    @apply bg-surface-900 border border-surface-700 rounded-2xl
-           transition-all duration-300 hover:border-accent/30 hover:shadow-card-hover;
+    @apply bg-surface-950 border border-surface-700
+           transition-colors duration-150 hover:border-accent;
+  }
+  /* Mono eyebrow label: uppercase, wide-tracked, accent. */
+  .label-mono {
+    @apply font-mono text-[0.7rem] uppercase tracking-label text-accent;
+  }
+  /* Full-bleed hairline used to separate stacked sections. */
+  .rule {
+    @apply border-t border-surface-700;
   }
 }

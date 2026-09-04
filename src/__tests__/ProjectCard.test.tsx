@@ -10,7 +10,6 @@ const base: Project = {
   description: 'A test project description.',
   tags: ['React', 'TypeScript'],
   category: 'Web',
-  gradient: 'from-blue-500 to-indigo-600',
 }
 
 function renderCard(props: Partial<Project> = {}) {

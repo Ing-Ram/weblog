@@ -6,7 +6,6 @@ export interface Project {
   category: 'Web' | 'Mobile' | 'Other' | 'OSS'
   githubUrl?: string
   liveUrl?: string
-  gradient: string
 }
 
 export interface Skill {

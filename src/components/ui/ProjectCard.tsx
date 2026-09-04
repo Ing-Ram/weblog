@@ -2,12 +2,13 @@ import type { Project } from '../../types'
 import Tag from './Tag'
 import Button from './Button'
 
-export default function ProjectCard({ title, description, tags, category, githubUrl, liveUrl, gradient }: Project) {
+export default function ProjectCard({ title, description, tags, category, githubUrl, liveUrl }: Project) {
   return (
-    <div className="card-base flex flex-col overflow-hidden">
-      {/* Gradient header */}
-      <div className={`relative h-32 bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-        <span className="text-white/20 font-display font-bold text-5xl select-none">
+    <div className="card-base group flex flex-col overflow-hidden">
+      {/* Header: initial as a large monochrome mark */}
+      <div className="relative h-32 bg-surface-900 border-b border-surface-700 flex items-end px-5 pb-3">
+        <span className="font-display font-bold text-7xl leading-none select-none text-surface-700
+          transition-colors duration-150 group-hover:text-accent">
           {title.charAt(0)}
         </span>
         <div className="absolute top-3 right-3">

@@ -12,7 +12,7 @@ export default function Projects() {
   const filtered = active === 'All' ? projects : projects.filter((p) => p.category === active)
 
   return (
-    <div className="pt-16">
+    <div className="pt-header">
       <div className="section-container">
         {/* Page header */}
         <div className="mb-12">
@@ -20,7 +20,7 @@ export default function Projects() {
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '-0.03em' }}>
             Projects
           </h1>
-          <div className="w-30 h-1 bg-gradient-accent rounded-full mb-4" />
+          <div className="w-30 h-1 bg-accent mb-4" />
           <p className="text-text-secondary text-lg">Things I've built.</p>
         </div>
 
