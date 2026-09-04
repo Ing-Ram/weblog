@@ -27,3 +27,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Personal photo originals — kept locally, not in the repo
+assets/chad-original.jpg
