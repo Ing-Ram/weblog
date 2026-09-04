@@ -8,7 +8,6 @@ export const projects: Project[] = [
   //   tags: ['React', 'IndexedDB', 'Markdown', 'PWA'],
   //   category: 'Web',
   //   githubUrl: 'https://github.com',
-  //   gradient: 'from-violet-500 to-purple-700',
   // },
     // {
   //   id: 'project-2',
@@ -17,8 +16,23 @@ export const projects: Project[] = [
   //   tags: ['React', 'IndexedDB', 'Markdown', 'PWA'],
   //   category: 'Web',
   //   githubUrl: 'https://github.com',
-  //   gradient: 'from-violet-500 to-purple-700',
   // },
+  {
+    id: 'project-10',
+    title: 'GGyst',
+    description: 'A responsive business-management app for independent gig workers — scheduling, client and family profiles, invoicing and payment records, expenses and receipts, and dashboard reporting in one place.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind', 'Auth.js'],
+    category: 'Web',
+    liveUrl: 'https://ggyst.com',
+  },
+  {
+    id: 'project-8',
+    title: 'Document Processing API',
+    description: 'A FastAPI service for submitting and tracking document-processing jobs. Clients create a job for a file and process type, then poll for status as it moves through the queue.',
+    tags: ['Python', 'FastAPI', 'Pydantic', 'Pytest', 'REST'],
+    category: 'OSS',
+    githubUrl: 'https://github.com/Ing-Ram/document-processing-api',
+  },
   {
     id: 'project-7',
     title: 'Simple ERP System',
@@ -26,7 +40,6 @@ export const projects: Project[] = [
     tags: ['Java', 'TypeScript', 'Maven', 'Postgres', 'Bash', 'React', 'Spring Boot'], 
     category: 'OSS',
     githubUrl: 'https://github.com/Ing-Ram/simple-erp',
-    gradient: 'from-emerald-500 to-teal-600',
   },
  
   {
@@ -36,7 +49,6 @@ export const projects: Project[] = [
     tags: ['Swift', 'iOS', 'Xcode', 'Mobile'],
     category: 'Mobile',
     githubUrl: 'https://github.com/Ing-Ram/HiLow/tree/ios',
-    gradient: 'from-pink-500 to-fuchsia-600',
   },
   {
     id: 'project-3',
@@ -45,7 +57,6 @@ export const projects: Project[] = [
     tags: ['React', 'Vite', 'Express', 'MySQL'],
     category: 'Web',
     githubUrl: 'https://github.com/Ing-Ram/class-lib',
-    gradient: 'from-pink-500 to-fuchsia-600',
   },
   {
     id: 'project-4',
@@ -54,7 +65,6 @@ export const projects: Project[] = [
     tags: ['Swift', 'SwiftUI', 'API', 'TestFlight'],
     category: 'Mobile',
     githubUrl: 'https://github.com/Ing-Ram/FlightTracker',
-    gradient: 'from-sky-500 to-indigo-600',
   },
   {
     id: 'project-5',
@@ -63,7 +73,6 @@ export const projects: Project[] = [
     tags: ['Android', 'Back4App', 'GCP', 'Mobile'],
     category: 'Mobile',
     githubUrl: 'https://github.com/Fitness-Guys/Fitness-Tracker-App',
-    gradient: 'from-violet-500 to-purple-700',
   },
    {
     id: 'project-6',
@@ -72,15 +81,13 @@ export const projects: Project[] = [
     tags: ['JavaFX', 'Java', 'Desktop'],
     category: 'Other',
     githubUrl: 'https://github.com/Ing-Ram/simplecalculator',
-    gradient: 'from-orange-500 to-rose-600',
   },
     {
-    id: 'project-7',
+    id: 'project-9',
     title: 'Book API',
     description: 'This is a research project to build a book API using .Net 9 and Entity Framework. The API will allow users to perform CRUD operations on books, authors, and genres.',
     tags: ['C#', '.NET', 'Entity Framework', 'MySQL'],
     category: 'OSS',
     githubUrl: 'https://github.com/Ing-Ram/BookAPI',
-    gradient: 'from-emerald-500 to-teal-600',
   },
 ]

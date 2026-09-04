@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import AnnouncementBar from './AnnouncementBar'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -57,6 +58,8 @@ export default function Navbar() {
           <span className={`block w-5 h-0.5 bg-current transition-all duration-200 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </nav>
+
+      <AnnouncementBar />
 
       {/* Mobile dropdown */}
       {open && (
